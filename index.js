@@ -1,11 +1,11 @@
-console.log("App Started");
+// Configuration
 const FPS = 7; 
 const SCENE_2_LAST = '🌮🌮🌮🌮🌮🌮🌮🌮🌮🌮🌮🌮🌮🌮🌮🌮🌮🌮🌮🌮TACOS';
 
+// Utils
 function flatten() {
     const arr = arguments[0];
-    const hoge = [].concat.apply([], arr);
-    return hoge;
+    return [].concat.apply([], arr);
 };
 
 function render(txt) {
@@ -24,7 +24,6 @@ async function animate( { texts, fps} ){
             if( !isFirst ){
                 setTimeout(()=>{
                     render(text);
-                    // console.log(text);
                     resolve();
                 }, interval);
             }
@@ -95,6 +94,7 @@ function combineScenes(){
     return this;
 }
 
+// Create Animations
 const scenes = combineScenes(
     [
         [
@@ -146,4 +146,5 @@ const scenes = combineScenes(
     ]
 );
 
+// GO!
 scenes.run();
